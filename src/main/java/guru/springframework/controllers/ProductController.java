@@ -13,17 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ProductController {
 
-    private ProductService productService;
+    private final ProductService productService;
 
-    @Autowired
-    public void setProductService(ProductService productService) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
     @RequestMapping("/product/{id}")
     public String getProductById(@PathVariable Integer id, Model model){
 
-        model.addAttribute("product", productService.getProduct(id));
+        model.addAttribute("product", productService.findById(id));
 
         return "product";
     }

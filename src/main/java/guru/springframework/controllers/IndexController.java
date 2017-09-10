@@ -14,21 +14,16 @@ public class IndexController {
 
     private ProductService productService;
 
-    @Autowired
-    public void setProductService(ProductService productService) {
+    public IndexController(ProductService productService) {
         this.productService = productService;
     }
 
     @RequestMapping({"/", "index"})
     public String getIndex(Model model){
 
-        model.addAttribute("products", productService.listProducts());
+        model.addAttribute("products", productService.getProducts());
 
         return "index";
     }
 
-    @RequestMapping("secured")
-    public String secured(){
-        return "secured";
-    }
 }

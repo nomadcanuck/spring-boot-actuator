@@ -1,11 +1,16 @@
 package guru.springframework.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
 /**
  * Created by jt on 1/26/16.
  */
+@Getter
+@Setter
 @Entity
 public class Author {
     @Id
@@ -21,55 +26,6 @@ public class Author {
     private String firstName;
     private String lastName;
     private String image;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public Date getDateCreated() {
-        return dateCreated;
-    }
-
-    public Date getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
 
     @PreUpdate
     @PrePersist
